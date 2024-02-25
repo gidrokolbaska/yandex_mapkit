@@ -266,7 +266,8 @@ class _YandexMapState extends State<YandexMap> {
         {_mapObjectCollection.copyWith(mapObjects: [])},
         {_mapObjectCollection}).toJson();
 
-    return {'mapOptions': mapOptions, 'mapObjects': mapObjects};
+    return {'mapOptions': mapOptions, 'mapObjects': mapObjects}
+      ..addAll({'locale': widget.locale});
   }
 }
 
