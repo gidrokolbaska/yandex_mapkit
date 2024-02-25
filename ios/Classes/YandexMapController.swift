@@ -30,7 +30,9 @@ public class YandexMapController:
   private let mapView: FLYMKMapView
 
   public required init(id: Int64, frame: CGRect, registrar: FlutterPluginRegistrar, params: [String: Any]) {
-    YMKMapKit.setLocale(params["mapOptions"]["locale"] as! String)
+    
+    print("gabella: \(params["mapOptions"])")
+    //YMKMapKit.setLocale(params["mapOptions"]["locale"] as! String)
     
     self.pluginRegistrar = registrar
     self.mapView = FLYMKMapView(frame: frame, vulkanPreferred: YandexMapController.isM1Simulator())
