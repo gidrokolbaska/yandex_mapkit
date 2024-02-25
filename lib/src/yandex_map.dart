@@ -321,7 +321,8 @@ class _YandexMapOptions {
       'logoAlignment': logoAlignment.toJson(),
       'focusRect': focusRect?.toJson(),
       'mapType': mapType.index,
-      'poiLimit': poiLimit
+      'poiLimit': poiLimit,
+      'locale': locale,
     };
   }
 
