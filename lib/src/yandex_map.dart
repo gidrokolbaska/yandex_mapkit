@@ -265,9 +265,9 @@ class _YandexMapState extends State<YandexMap> {
     final mapObjects = MapObjectUpdates.from(
         {_mapObjectCollection.copyWith(mapObjects: [])},
         {_mapObjectCollection}).toJson();
-
-    return {'mapOptions': mapOptions, 'mapObjects': mapObjects}
-      ..addAll({'locale': widget.locale});
+    final params = {'mapOptions': mapOptions, 'mapObjects': mapObjects};
+    print('gabella from plugin: ${params}');
+    return params;
   }
 }
 
