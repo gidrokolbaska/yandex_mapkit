@@ -33,6 +33,8 @@ public class YandexMapController:
     let mapOptions = params["mapOptions"] as! [String: Any];
    let locale = mapOptions["locale"] as! String
    let apiKey = mapOptions["apiKey"] as! String
+   print("gabella: \(locale)")
+   print("gabella: \(apiKey)")
     YMKMapKit.setApiKey(apiKey);
     YMKMapKit.setLocale(locale)
     
