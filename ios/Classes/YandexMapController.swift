@@ -31,8 +31,8 @@ public class YandexMapController:
 
   public required init(id: Int64, frame: CGRect, registrar: FlutterPluginRegistrar, params: [String: Any]) {
     
-   
-    YMKMapKit.setLocale(params["locale"] as! String)
+   let locale = params["mapOptions"]["locale"] as! String;
+    YMKMapKit.setLocale(locale)
     
     self.pluginRegistrar = registrar
     self.mapView = FLYMKMapView(frame: frame, vulkanPreferred: YandexMapController.isM1Simulator())

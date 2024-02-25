@@ -266,7 +266,6 @@ class _YandexMapState extends State<YandexMap> {
         {_mapObjectCollection.copyWith(mapObjects: [])},
         {_mapObjectCollection}).toJson();
     final params = {'mapOptions': mapOptions, 'mapObjects': mapObjects};
-    print('gabella from plugin: ${params}');
     return params;
   }
 }
