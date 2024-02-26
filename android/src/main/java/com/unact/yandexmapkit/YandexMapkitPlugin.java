@@ -31,6 +31,16 @@ public class YandexMapkitPlugin implements FlutterPlugin, ActivityAware {
 
   @Override
   public void onAttachedToEngine(FlutterPluginBinding binding) {
+    SharedPreferences sharedValue = binding.getApplicationContext().getSharedPreferences("FlutterSharedPreferences",0);
+    String locale = sharedValue.getString("flutter."+"locale","");
+    Log.d("gabella from native android","locale:"+locale);
+    if(locale != null && !locale.equals("")) {
+      
+      MapKitFactory.setLocale(locale);
+    } else {
+     
+      MapKitFactory.setLocale("ru_RU");
+    }
     MapKitFactory.initialize(binding.getApplicationContext());
 
     BinaryMessenger messenger = binding.getBinaryMessenger();
@@ -80,16 +90,6 @@ public class YandexMapkitPlugin implements FlutterPlugin, ActivityAware {
   @Override
   public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
     lifecycle = FlutterLifecycleAdapter.getActivityLifecycle(binding);
-    SharedPreferences sharedValue = binding.getApplicationContext().getSharedPreferences("FlutterSharedPreferences",0);
-    String locale = sharedValue.getString("flutter."+"locale","");
-    Log.d("gabella from native android","locale:"+locale);
-    if(locale != null && !locale.equals("")) {
-      
-      MapKitFactory.setLocale(locale);
-    } else {
-     
-      MapKitFactory.setLocale("ru_RU");
-    }
     MapKitFactory.getInstance().onStart();
   }
 
