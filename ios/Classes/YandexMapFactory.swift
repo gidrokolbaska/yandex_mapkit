@@ -10,9 +10,11 @@ public class YandexMapFactory: NSObject, FlutterPlatformViewFactory {
     let preferences = UserDefaults.standard
     let currentLevelKey = "locale"
     if preferences.object(forKey: "flutter.\(currentLevelKey)") == nil {
+      print("gabella from plugin: couldnt find preference")
      YMKMapKit.setLocale("ru_RU")
     } else {
     let currentLevel = preferences.string(forKey: "flutter.\(currentLevelKey)")
+     print("gabella from plugin: \(currentLevel)")
     YMKMapKit.setLocale(currentLevel)
     }
   
