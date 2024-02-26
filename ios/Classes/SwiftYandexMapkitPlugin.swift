@@ -11,7 +11,6 @@ public class SwiftYandexMapkitPlugin: NSObject, FlutterPlugin {
     )
 
     YMKMapKit.sharedInstance().onStart()
-    print("gabella1 plugin")
 
     YandexSearch.register(with: registrar)
     YandexSuggest.register(with: registrar)

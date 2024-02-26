@@ -7,6 +7,14 @@ public class YandexMapFactory: NSObject, FlutterPlatformViewFactory {
 
   public init(registrar: FlutterPluginRegistrar) {
     self.pluginRegistrar = registrar
+    let preferences = NSUserDefaults.standardUserDefaults()
+    let currentLevelKey = "locale"
+    if preferences.objectForKey(currentLevelKey) == nil {
+      YMKMapKit.setLocale("ru_RU")
+    } else {
+    let currentLevel = preferences.stringForKey(currentLevelKey)
+    YMKMapKit.setLocale(currentLevel)
+    }
     super.init()
   }
 

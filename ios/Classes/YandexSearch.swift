@@ -24,7 +24,6 @@ public class YandexSearch: NSObject, FlutterPlugin {
     self.pluginRegistrar = registrar
     self.methodChannel = channel
     self.searchManager = YMKSearch.sharedInstance().createSearchManager(with: .combined)
-    print("gabella3 plugin")
 
     super.init()
 

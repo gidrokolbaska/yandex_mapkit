@@ -30,14 +30,6 @@ public class YandexMapController:
   private let mapView: FLYMKMapView
 
   public required init(id: Int64, frame: CGRect, registrar: FlutterPluginRegistrar, params: [String: Any]) {
-    let mapOptions = params["mapOptions"] as! [String: Any];
-   let locale = mapOptions["locale"] as! String
-   let apiKey = mapOptions["apiKey"] as! String
-   print("gabella: \(locale)")
-   print("gabella: \(apiKey)")
-    YMKMapKit.setApiKey(apiKey);
-    YMKMapKit.setLocale(locale)
-    
     self.pluginRegistrar = registrar
     self.mapView = FLYMKMapView(frame: frame, vulkanPreferred: YandexMapController.isM1Simulator())
     self.methodChannel = FlutterMethodChannel(
@@ -46,7 +38,6 @@ public class YandexMapController:
     )
     self.userLocationLayer = YMKMapKit.sharedInstance().createUserLocationLayer(with: mapView.mapWindow)
     self.trafficLayer = YMKMapKit.sharedInstance().createTrafficLayer(with: mapView.mapWindow)
-    print("gabella2 plugin")
 
     super.init()
 
