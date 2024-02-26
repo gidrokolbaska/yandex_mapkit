@@ -1,8 +1,6 @@
 package com.unact.yandexmapkit;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
 import androidx.annotation.NonNull;
 
 import java.util.Map;
@@ -20,16 +18,7 @@ public class YandexMapFactory extends PlatformViewFactory {
     super(StandardMessageCodec.INSTANCE);
     this.messenger = messenger;
     this.lifecycleProvider = lifecycleProvider;
-    SharedPreferences sharedValue = context.getSharedPreferences("FlutterSharedPreferences",0);
-    String locale = sharedValue.getString("flutter."+"locale","");
-    Log.d("gabella from native android","locale:"+locale);
-    if(locale != null && !locale.equals("")) {
-      
-      MapKitFactory.setLocale(locale);
-    } else {
-     
-      MapKitFactory.setLocale("ru_RU");
-    }
+    
   }
 
   @NonNull

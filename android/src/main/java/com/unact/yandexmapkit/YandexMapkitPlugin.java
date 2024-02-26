@@ -1,7 +1,8 @@
 package com.unact.yandexmapkit;
 
 import android.content.Context;
-
+import android.content.SharedPreferences;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
@@ -79,6 +80,16 @@ public class YandexMapkitPlugin implements FlutterPlugin, ActivityAware {
   @Override
   public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
     lifecycle = FlutterLifecycleAdapter.getActivityLifecycle(binding);
+    SharedPreferences sharedValue = context.getSharedPreferences("FlutterSharedPreferences",0);
+    String locale = sharedValue.getString("flutter."+"locale","");
+    Log.d("gabella from native android","locale:"+locale);
+    if(locale != null && !locale.equals("")) {
+      
+      MapKitFactory.setLocale(locale);
+    } else {
+     
+      MapKitFactory.setLocale("ru_RU");
+    }
     MapKitFactory.getInstance().onStart();
   }
 
