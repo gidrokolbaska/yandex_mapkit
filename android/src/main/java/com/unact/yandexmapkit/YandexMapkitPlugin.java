@@ -80,7 +80,7 @@ public class YandexMapkitPlugin implements FlutterPlugin, ActivityAware {
   @Override
   public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
     lifecycle = FlutterLifecycleAdapter.getActivityLifecycle(binding);
-    SharedPreferences sharedValue = context.getSharedPreferences("FlutterSharedPreferences",0);
+    SharedPreferences sharedValue = binding.getApplicationContext().getSharedPreferences("FlutterSharedPreferences",0);
     String locale = sharedValue.getString("flutter."+"locale","");
     Log.d("gabella from native android","locale:"+locale);
     if(locale != null && !locale.equals("")) {
