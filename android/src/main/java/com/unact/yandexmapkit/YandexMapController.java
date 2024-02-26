@@ -92,7 +92,7 @@ public class YandexMapController implements
   ) {
     this.lifecycleProvider = lifecycleProvider;
     this.context = context;
-    SharedPreferences sharedValue = context().getSharedPreferences("FlutterSharedPreferences",0);
+    SharedPreferences sharedValue = context.getSharedPreferences("FlutterSharedPreferences",0);
     String locale = sharedValue.getString("flutter."+"locale","");
     Log.d("gabella from native android","locale:"+locale);
     if(locale != null && !locale.equals("")) {
