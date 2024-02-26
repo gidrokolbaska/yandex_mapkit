@@ -46,6 +46,7 @@ public class YandexMapController:
     )
     self.userLocationLayer = YMKMapKit.sharedInstance().createUserLocationLayer(with: mapView.mapWindow)
     self.trafficLayer = YMKMapKit.sharedInstance().createTrafficLayer(with: mapView.mapWindow)
+    print("gabella2 plugin")
 
     super.init()
 

@@ -25,6 +25,7 @@ public class YandexSuggest: NSObject, FlutterPlugin {
     self.pluginRegistrar = registrar
     self.methodChannel = channel
     self.searchManager = YMKSearch.sharedInstance().createSearchManager(with: .combined)
+    print("gabella4 plugin")
 
     super.init()
 
