@@ -19,6 +19,16 @@ public class YandexMapFactory extends PlatformViewFactory {
     super(StandardMessageCodec.INSTANCE);
     this.messenger = messenger;
     this.lifecycleProvider = lifecycleProvider;
+    SharedPreferences sharedValue = context.getSharedPreferences("FlutterSharedPreferences",0);
+    String locale = sharedValue.getString("flutter."+"locale","");
+    Log.d("gabella from native android","locale:"+locale);
+    if(locale != null && !locale.equals("")) {
+      
+      MapKitFactory.setLocale(locale);
+    } else {
+     
+      MapKitFactory.setLocale("ru_RU");
+    }
   }
 
   @NonNull

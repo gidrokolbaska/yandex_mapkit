@@ -93,16 +93,7 @@ public class YandexMapController implements
   ) {
     this.lifecycleProvider = lifecycleProvider;
     this.context = context;
-    SharedPreferences sharedValue = context.getSharedPreferences("FlutterSharedPreferences",0);
-    String locale = sharedValue.getString("flutter."+"locale","");
-    Log.d("gabella from native android","locale:"+locale);
-    if(locale != null && !locale.equals("")) {
-      
-      MapKitFactory.setLocale(locale);
-    } else {
-     
-      MapKitFactory.setLocale("ru_RU");
-    }
+   
     if (context instanceof FlutterActivity) {
       mapView = (MapView) ((FlutterActivity) context).getLayoutInflater().inflate(R.layout.map_view, null);
     } else if (context instanceof FlutterFragmentActivity) {
