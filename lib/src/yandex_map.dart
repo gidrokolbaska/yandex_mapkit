@@ -39,8 +39,6 @@ class YandexMap extends StatefulWidget {
     this.mapType = MapType.vector,
     this.poiLimit,
     this.onObjectTap,
-    this.locale,
-    required this.apiKey,
   }) : super(key: key);
 
   static const String _viewType = 'yandex_mapkit/yandex_map';
@@ -121,11 +119,6 @@ class YandexMap extends StatefulWidget {
 
   /// Called every time a [YandexMap] geo object is tapped.
   final ObjectTapCallback? onObjectTap;
-
-  ///Sets the locale in the creationParams of the PlatformView
-  final String? locale;
-
-  final String apiKey;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -268,8 +261,7 @@ class _YandexMapState extends State<YandexMap> {
     final mapObjects = MapObjectUpdates.from(
         {_mapObjectCollection.copyWith(mapObjects: [])},
         {_mapObjectCollection}).toJson();
-    final params = {'mapOptions': mapOptions, 'mapObjects': mapObjects};
-    return params;
+    return {'mapOptions': mapOptions, 'mapObjects': mapObjects};
   }
 }
 
@@ -286,8 +278,6 @@ class _YandexMapOptions {
         logoAlignment = map.logoAlignment,
         focusRect = map.focusRect,
         mapType = map.mapType,
-        locale = map.locale,
-        apiKey = map.apiKey,
         poiLimit = map.poiLimit;
 
   final bool tiltGesturesEnabled;
@@ -311,8 +301,6 @@ class _YandexMapOptions {
   final MapType mapType;
 
   final int? poiLimit;
-  final String? locale;
-  final String apiKey;
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -327,8 +315,6 @@ class _YandexMapOptions {
       'focusRect': focusRect?.toJson(),
       'mapType': mapType.index,
       'poiLimit': poiLimit,
-      'locale': locale,
-      'apiKey': apiKey,
     };
   }
 
